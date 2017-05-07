@@ -8,6 +8,7 @@ namespace AutoCompleteFilter
 {
     public interface IFilterService
     {
-        List<string> Filter(string filterText,int limit);
+        List<string> FilterWithLimit(string filterText,int limit);
+        List<string> Filter(string filterText);
     }
 }

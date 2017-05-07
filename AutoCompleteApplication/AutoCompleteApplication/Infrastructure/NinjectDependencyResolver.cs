@@ -91,6 +91,7 @@
         private void AddBindings()
         {
             this.Bind<IFilterService>().To<FileFilterService>();
+            this.Bind<ICacheManager>().To<MemoryCacheManager>();
         }
     }
 }

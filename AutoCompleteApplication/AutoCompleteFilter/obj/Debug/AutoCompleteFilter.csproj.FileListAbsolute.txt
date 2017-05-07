@@ -7,3 +7,8 @@ C:\Users\rpoondla\Desktop\AutoCompleteApplication\AutoCompleteFilter\bin\Debug\A
 C:\Users\rpoondla\Desktop\AutoCompleteApplication\AutoCompleteFilter\bin\Debug\AutoCompleteFilter.pdb
 C:\Users\rpoondla\Desktop\AutoCompleteApplication\AutoCompleteFilter\obj\Debug\AutoCompleteFilter.dll
 C:\Users\rpoondla\Desktop\AutoCompleteApplication\AutoCompleteFilter\obj\Debug\AutoCompleteFilter.pdb
+C:\Users\rpoondla\Desktop\ddesktop\AutoCompleteApplication\AutoCompleteFilter\bin\Debug\AutoCompleteFilter.dll
+C:\Users\rpoondla\Desktop\ddesktop\AutoCompleteApplication\AutoCompleteFilter\bin\Debug\AutoCompleteFilter.pdb
+C:\Users\rpoondla\Desktop\ddesktop\AutoCompleteApplication\AutoCompleteFilter\obj\Debug\AutoCompleteFilter.csprojResolveAssemblyReference.cache
+C:\Users\rpoondla\Desktop\ddesktop\AutoCompleteApplication\AutoCompleteFilter\obj\Debug\AutoCompleteFilter.dll
+C:\Users\rpoondla\Desktop\ddesktop\AutoCompleteApplication\AutoCompleteFilter\obj\Debug\AutoCompleteFilter.pdb

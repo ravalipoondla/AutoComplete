@@ -2,33 +2,17 @@
     ViewBag.Title = "Home Page";
 }
 
-<script type="text/javascript">
-    $(function () {
+    <script type="text/javascript">
+        $(document).ready(function(){
 
-        $("#SampleText").autocomplete({
-            source: function (request, response) {
-                 $.ajax({
-                     url: "/Home/LookupinDictionary",
-                     type: "GET",
-                     dataType: "json",
-                     data: { text: request.term,limit:50 },
-                     success: function (data) {
-                         response($.map(data, function (word) {
-                             return { text: word, value: word };
-                         }))
-                     }
-                 })
-             },
-             select: function (event, ui) {
-                 $("#SampleText").value = ui.item.value;
-                 alert("You have selected = " + ui.item.text);
 
-             }
-         });
-    });
+            $('#search').ravsAutoComplete({
+                url: "/Home/LookupinDictionaryWithLimit"
+            });
 
-</script>
+        });
 
+    </script>
 
 <div class="jumbotron">
     <table>
@@ -37,11 +21,8 @@
                 <label style="font-weight: bold;">
                     Sample Text <strong>:</strong>
                 </label>
-            </td>
-            <td>
-                @Html.TextBox("SampleText", "",new { @class = "textbox", @style = "width:220px" })
+                @Html.TextBox("search", "", new { @class = "textbox", @style = "width:220px" }) 
             </td>
         </tr>
     </table>
-
 </div>

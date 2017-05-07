@@ -9,7 +9,8 @@ namespace AutoCompleteApplication
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-1.6.2.min.js",
+                        "~/Scripts/jquery-1.9.0.min.js",
+                        "~/Scripts/ravsAutoComplete.js",
                         "~/Scripts/jquery-ui-1.8.11.min.js"
                         ));
 
@@ -21,7 +22,7 @@ namespace AutoCompleteApplication
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/themes/base/jquery.ui.theme.css",
-                      "~/Content/themes/base/jquery.ui.autocomplete.css",
+                      "~/Content/themes/base/ravsAutoComplete.css",
                       "~/Content/site.css"));
         }
     }

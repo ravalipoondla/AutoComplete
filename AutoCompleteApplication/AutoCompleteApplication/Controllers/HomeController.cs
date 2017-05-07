@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AutoCompleteFilter;
+using System.Collections;
 
 namespace AutoCompleteApplication.Controllers
 {
@@ -21,6 +22,11 @@ namespace AutoCompleteApplication.Controllers
         private readonly IFilterService filterService;
 
         /// <summary>
+        /// field for api cachemanager
+        /// </summary>
+        private readonly ICacheManager cacheManager;
+
+        /// <summary>
         /// Default Constructor
         /// </summary>
         public HomeController()
@@ -32,15 +38,39 @@ namespace AutoCompleteApplication.Controllers
         /// Initializes a new instance of the <see cref="HomeController" /> class.
         /// </summary>
         /// <param name="filterService">filterService interface</param>
-        public HomeController(IFilterService filterService)
+        public HomeController(IFilterService filterService,ICacheManager cacheManager)
         {
             this.filterService = filterService;
+            this.cacheManager = cacheManager;
         }
 
         [HttpGet]
-        public JsonResult LookupinDictionary(string text,int limit)
+        public JsonResult LookupinDictionaryWithLimit(string text,int limit)
         {
-         return Json(this.filterService.Filter(text,limit), JsonRequestBehavior.AllowGet);
+            var results = cacheManager.Get<List<string>>(text);
+            if (results == null)
+            {
+                results = this.filterService.FilterWithLimit(text, limit);
+                var cacheTime = ConfigurationManager.AppSettings["cacheTime"];
+                cacheManager.Set(text, results, Convert.ToInt32(cacheTime));
+            }
+
+            return Json(results, JsonRequestBehavior.AllowGet);
+
+        }
+
+        [HttpGet]
+        public JsonResult LookupinDictionary(string text)
+        {
+            var results = cacheManager.Get<List<string>>(text);
+            if (results == null)
+            {
+                results = this.filterService.Filter(text);
+                var cacheTime = ConfigurationManager.AppSettings["cacheTime"];
+                cacheManager.Set(text, results, Convert.ToInt32(cacheTime));
+            }
+
+            return Json(results, JsonRequestBehavior.AllowGet);
 
         }
 
